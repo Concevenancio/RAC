@@ -13,9 +13,9 @@ namespace WebApplication1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ResidenciasEntities1 : DbContext
+    public partial class ResidenciasEntities : DbContext
     {
-        public ResidenciasEntities1()
+        public ResidenciasEntities()
             : base("name=ResidenciasEntities1")
         {
         }
