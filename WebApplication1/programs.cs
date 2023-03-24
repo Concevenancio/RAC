@@ -19,7 +19,7 @@ namespace WebApplication1
                 OUsuarios.Username = "hectorillo";
                 OUsuarios.pass = Encrypt.GetSHA256("123456");
                 db.Usuarios.Add(OUsuarios);
-                db.SaveChanges();  SqlCommand    execute
+                db.SaveChanges();  
             }
         }
     }
