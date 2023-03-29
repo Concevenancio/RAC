@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pruebas;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,11 +16,11 @@ namespace WebApplication1
         {
             using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
             {
-                Models.Usuarios OUsuarios= new Models.Usuarios();
+                Models.Usuarios OUsuarios= new Models.Usuarios(); 
                 OUsuarios.Username = "hectorillo";
-                OUsuarios.pass = Encrypt.GetSHA256("123456");
+                OUsuarios.pass = PasswordEncryptor.GetSHA256("123456");
                 db.Usuarios.Add(OUsuarios);
-                db.SaveChanges();  
+                db.SaveChanges(); 
             }
         }
     }

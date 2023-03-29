@@ -7,7 +7,7 @@ using System.Web;
 
 namespace WebApplication1
 {
-    public class Encrypt
+    public class PasswordEncypt
     {
         public static string GetSHA256(string str)
         {
