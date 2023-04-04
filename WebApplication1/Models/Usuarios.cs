@@ -11,7 +11,8 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuarios
     {
         public int ID { get; set; }
@@ -20,6 +21,7 @@ namespace WebApplication1.Models
         public string Direccion { get; set; }
         public string Placas { get; set; }
         public string Username { get; set; }
+        [StringLength(200)]
         public string pass { get; set; }
     }
 }
