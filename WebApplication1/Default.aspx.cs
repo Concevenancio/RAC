@@ -15,15 +15,24 @@ namespace WebApplication1
             using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
             {
                 Models.Usuarios OUsuarios = new Models.Usuarios();
-                OUsuarios.Nombre = "";
-                OUsuarios.Apellidos = "";
-                OUsuarios.Direccion = "";
-                OUsuarios.Placas = "";
-                OUsuarios.Username = "hectorillo";
-                OUsuarios.pass = PasswordEncryptor.EncryptPassword("123456");
+                OUsuarios.Nombre = "Sergio";
+                OUsuarios.Apellidos = "Peres";
+                OUsuarios.Direccion = "las almas";
+                OUsuarios.Placas = "mirr-ropd";
+                OUsuarios.Username = "sergio";
+                OUsuarios.pass = PasswordEncryptor.EncryptPassword("666666");
                 db.Usuarios.Add(OUsuarios);
                 db.SaveChanges();
             }
+            //using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
+            //{
+            //    Models.Invitados OInvitados = new Models.Invitados();
+            //    OInvitados.Nombre = "paca";
+            //    OInvitados.Apellido = "lasaro";
+            //    OInvitados.Placas = "MOPA-LOA5";
+            //    db.Invitados.Add(OInvitados);
+            //    db.SaveChanges();
+            //}
         }
     }
 }

@@ -5,8 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Security;
 using System.Web;
-
-
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -21,6 +20,14 @@ namespace WebApplication1
                 OUsuarios.pass = PasswordEncryptor.GetSHA256("123456");
                 db.Usuarios.Add(OUsuarios);
                 db.SaveChanges(); 
+            }
+            using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
+            {
+                Models.Invitados OInvitados = new Models.Invitados();
+                OInvitados.Nombre = "hectorillo";
+                OInvitados.Apellido = "Lasaro";
+                db.Invitados.Add(OInvitados);
+                db.SaveChanges();
             }
         }
     }

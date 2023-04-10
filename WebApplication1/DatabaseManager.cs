@@ -22,5 +22,20 @@ namespace Pruebas
                 command.ExecuteNonQuery();
             }
         }
+        public static void InsertInvitados(string connectionString, string Nombre, string Apellido, string Placas)
+        {
+            
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("INSERT INTO Invitados (Nombre, Apellido, Placas) VALUES (@Nombre, @Apellido, @Placas)", connection);
+                command.Parameters.AddWithValue("@Nombre", Nombre);
+                command.Parameters.AddWithValue("@Apellido", Apellido);
+                command.Parameters.AddWithValue("@Placas", Placas);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
