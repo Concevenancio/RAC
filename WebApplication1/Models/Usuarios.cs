@@ -15,6 +15,9 @@ namespace WebApplication1.Models
 
     public partial class Usuarios
     {
+        internal static object id;
+        internal object iD;
+
         public int ID { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
@@ -23,5 +26,16 @@ namespace WebApplication1.Models
         public string Username { get; set; }
         [StringLength(200)]
         public string pass { get; set; }
+
+
+        internal void Add(Usuarios usuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool ContainsKey(int iD)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,18 +12,18 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
-            {
-                Models.Usuarios OUsuarios = new Models.Usuarios();
-                OUsuarios.Nombre = "Sergio";
-                OUsuarios.Apellidos = "Peres";
-                OUsuarios.Direccion = "las almas";
-                OUsuarios.Placas = "mirr-ropd";
-                OUsuarios.Username = "sergio";
-                OUsuarios.pass = PasswordEncryptor.EncryptPassword("666666");
-                db.Usuarios.Add(OUsuarios);
-                db.SaveChanges();
-            }
+            //using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
+            //{
+            //    Models.Usuarios OUsuarios = new Models.Usuarios();
+            //    OUsuarios.Nombre = "Sergio";
+            //    OUsuarios.Apellidos = "Peres";
+            //    OUsuarios.Direccion = "las almas";
+            //    OUsuarios.Placas = "mirr-ropd";
+            //    OUsuarios.Username = "sergio";
+            //    OUsuarios.pass = PasswordEncryptor.EncryptPassword("666666");
+            //    db.Usuarios.Add(OUsuarios);
+            //    db.SaveChanges();
+            //}
             //using (Models.ResidenciasEntities db = new Models.ResidenciasEntities())
             //{
             //    Models.Invitados OInvitados = new Models.Invitados();

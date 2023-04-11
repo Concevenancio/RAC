@@ -13,7 +13,7 @@
     <link href="build/css/custom.min.css" rel="stylesheet"/>
 </head>
 <body class="login">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"> 
         <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>

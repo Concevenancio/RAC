@@ -1,127 +1,58 @@
-﻿using System;
+﻿using Pruebas;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : ApiController
     {
-        private ResidenciasEntities db = new ResidenciasEntities();
+        static Dictionary<int, Usuarios> usuarios = new Dictionary<int, Usuarios>();
 
-        // GET: Usuarios
-        public ActionResult Index()
+        public UsuariosController()
         {
-            return View(db.Usuarios.ToList());
+            // Inicializar la colección de usuarios aquí
+        }
+        //GET api/Usuarios
+        public IEnumerable<Usuarios> Get()
+        {
+            return new List<Usuarios>(usuarios.Values);
         }
 
-        // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
+        //GET api/Usuarios/5
+        public Usuarios Get(int iD)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuarios);
+            Usuarios encontrado;
+            usuarios.TryGetValue(iD, out encontrado);
+            return encontrado;
         }
 
-        // GET: Usuarios/Create
-        public ActionResult Create()
+
+        //POST api/Usuarios
+        public IHttpActionResult Post(Usuarios usuario)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            usuario.ID = usuarios.Count + 1;
+            usuarios.Add(usuario.ID, usuario);
+            return CreatedAtRoute("DefaultApi", new { id = usuario.ID }, usuario);
         }
 
-        // POST: Usuarios/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nombre,Apellidos,Direccion,Placas,Username,pass")] Usuarios usuarios)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Usuarios.Add(usuarios);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(usuarios);
-        }
-
-        // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        //DELET api/Usuarios/1
+        public bool Delete(int iD)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuarios);
-        }
-
-        // POST: Usuarios/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nombre,Apellidos,Direccion,Placas,Username,pass")] Usuarios usuarios)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(usuarios).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(usuarios);
-        }
-
-        // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuarios);
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Usuarios usuarios = db.Usuarios.Find(id);
-            db.Usuarios.Remove(usuarios);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return usuarios.Remove(iD);
         }
     }
 }

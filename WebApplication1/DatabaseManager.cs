@@ -24,7 +24,7 @@ namespace Pruebas
         }
         public static void InsertInvitados(string connectionString, string Nombre, string Apellido, string Placas)
         {
-            
+
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -37,5 +37,7 @@ namespace Pruebas
                 command.ExecuteNonQuery();
             }
         }
+
+
     }
 }
