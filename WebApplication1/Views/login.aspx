@@ -6,11 +6,11 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>RAC |</title>
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="assets/nprogress/nprogress.css" rel="stylesheet"/>
-    <link href="assets/animate.css/animate.min.css" rel="stylesheet"/>
-    <link href="build/css/custom.min.css" rel="stylesheet"/>
+    <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../assets/nprogress/nprogress.css" rel="stylesheet"/>
+    <link href="../assets/animate.css/animate.min.css" rel="stylesheet"/>
+    <link href="../build/css/custom.min.css" rel="stylesheet"/>
 </head>
 <body class="login">
     <form id="form1" runat="server"> 
@@ -22,15 +22,22 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
+              <br />
+              <br />
               <h1>¡Bienvenido!</h1>
+              <br />
+              <br />
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
+                <br />
+                <br />
+                <br />
               <div>
-                <a class="btn btn-default submit" href="index.html">Iniciar sesión</a>
+                <a class="btn btn-default submit" href="Admin/index.aspx">Iniciar sesión</a>
                 <a class="reset_pass" href="#signup">¿Contraseña perdida?</a>
               </div>
 
@@ -65,7 +72,7 @@
                 <input type="password" class="form-control" placeholder="Confirmación" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Enviar</a>
+                <a class="btn btn-default submit" href="Admin/index.aspx">Enviar</a>
               </div>
 
               <div class="clearfix"></div>
