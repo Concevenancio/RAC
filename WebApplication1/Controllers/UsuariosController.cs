@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,6 +48,32 @@ namespace WebApplication1.Controllers
             usuarios.Add(usuario.ID, usuario);
             return CreatedAtRoute("DefaultApi", new { id = usuario.ID }, usuario);
         }
+
+        // PUT api/Usuarios/5
+        public IHttpActionResult Put(int iD, Usuarios usuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Usuarios encontrado;
+            usuarios.TryGetValue(iD, out encontrado);
+            if (encontrado == null)
+            {
+                return NotFound();
+            }
+
+            encontrado.Nombre = usuario.Nombre;
+            encontrado.Apellidos = usuario.Apellidos;
+            encontrado.Direccion = usuario.Direccion;
+            encontrado.Placas = usuario.Placas;
+            encontrado.Username = usuario.Username;
+            encontrado.pass = usuario.pass;
+
+            return Ok(encontrado);
+        }
+
 
 
         //DELET api/Usuarios/1

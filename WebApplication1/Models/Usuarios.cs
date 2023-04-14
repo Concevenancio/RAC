@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace WebApplication1.Models
 {
     using System;
@@ -16,7 +17,7 @@ namespace WebApplication1.Models
     public partial class Usuarios
     {
         internal static object id;
-        internal object iD;
+        
 
         public int ID { get; set; }
         public string Nombre { get; set; }
