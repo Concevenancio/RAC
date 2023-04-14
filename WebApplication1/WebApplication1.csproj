@@ -149,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="assets\animate.css\animate.css" />
+    <Content Include="assets\animate.css\animate.min.css" />
+    <Content Include="assets\animate.css\gulpfile.js" />
     <Content Include="assets\bootstrap\.babelrc.js" />
     <Content Include="assets\bootstrap\.gitattributes" />
     <Content Include="assets\bootstrap\.gitignore" />
@@ -965,6 +968,10 @@
     <Content Include="obj\Debug\WebApplication1.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\WebApplication1.csproj.CopyComplete" />
     <Content Include="obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache" />
+    <Content Include="assets\animate.css\.bower.json" />
+    <Content Include="assets\animate.css\animate-config.json" />
+    <Content Include="assets\animate.css\bower.json" />
+    <Content Include="assets\animate.css\package.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
